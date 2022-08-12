@@ -4,6 +4,7 @@
   "description": "A simple express app for managing brew n broo cofee shop.",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Benjoe Oates Carandang",

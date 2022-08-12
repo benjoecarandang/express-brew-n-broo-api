@@ -1,30 +1,12 @@
 const express = require("express");
+const productRouter = require("./routes/productRouter");
+const userRouter = require("./routes/userRouter");
 
 const app = express();
 app.use(express.json());
 
-const getAllProducts = (req, res) => {
-  res.status(200).send("Fetching all products");
-};
+//Routes
+app.use("/api/v1/products", productRouter);
+app.use("/api/v1/users", userRouter);
 
-const createNewProduct = (req, res) => {
-  console.log(req.body);
-  res.status(200).send("Post completed");
-};
-
-const updateProduct = (req, res) => {
-	console.log(req.body);
-  res.status(200).send("Update completed");
-};
-
-const deleteProduct = (req, res) => {
-  res.status(204).send("Delete completed");
-};
-
-app.route("/api/v1/products").get(getAllProducts).post(createNewProduct);
-app.route("/api/v1/product/:id").patch(updateProduct).delete(deleteProduct);
-
-const port = 8000;
-app.listen(port, () => {
-  console.log(`Listening on port ${port}.`);
-});
+module.exports = app;
