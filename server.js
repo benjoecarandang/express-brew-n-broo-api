@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
 const app = require("./app");
 
-mongoose.connect(DB,
+mongoose.connect(
+  process.env.DB_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -16,7 +18,7 @@ db.on("error", () => {
   console.log("Connected in Mongoose DB");
 });
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
   console.log(`Listening on server port ${port}.`);
