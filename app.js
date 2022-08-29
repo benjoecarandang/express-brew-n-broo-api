@@ -1,7 +1,6 @@
 const express = require("express");
 const productRouter = require("./routes/productRouter");
 const userRouter = require("./routes/userRouter");
-const mongoose = require('mongoose');
 
 const app = express();
 app.use(express.json());

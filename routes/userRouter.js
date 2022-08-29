@@ -7,6 +7,8 @@ router
   .get(userController.getUsers)
   .post(userController.validate, userController.createNewUser);
 
+router.route("/dashboard").get(userController.getDashboard);
+
 router
   .route("/:id")
   .patch(userController.validate, userController.updateUser)
